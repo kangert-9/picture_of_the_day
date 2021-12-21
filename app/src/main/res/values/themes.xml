@@ -13,4 +13,33 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="bottom_sheet_style">
+        <item name="android:background">@color/bottom</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="sheet_line_style">
+        <item name="android:layout_width">@dimen/line_width</item>
+        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:layout_marginTop">@dimen/marginTop</item>
+        <item name="android:background">@color/bottom_line</item>
+    </style>
+
+    <style name="description_header_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+        <item name="android:paddingEnd">@dimen/padding</item>
+        <item name="android:layout_marginTop">@dimen/marginTop</item>
+        <item name="android:textColor">@color/bottom_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ConstraintLayout_picture_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+        <item name="android:paddingEnd">@dimen/padding</item>
+    </style>
 </resources>
