@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/activity_main.xml" value="0.17527173913043478" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.1" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_bottom_navigation_drawer.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_chips.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.25" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_settings.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/menu/menu_bottom_bar.xml" value="0.1" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.17552083333333332" />
       </map>
     </option>

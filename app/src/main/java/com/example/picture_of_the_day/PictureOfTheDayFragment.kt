@@ -9,13 +9,10 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.example.picture_of_the_day.R
-import com.example.picture_of_the_day.MainActivity
 import com.example.picture_of_the_day.databinding.FragmentPictureOfTheDayBinding
 
 class PictureOfTheDayFragment : Fragment() {
@@ -23,14 +20,17 @@ class PictureOfTheDayFragment : Fragment() {
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
+    val context = activity as MainActivity
     private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
+        ViewModelProviders.of(this)[PictureOfTheDayViewModel::class.java]
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+     //   context.setSupportActionBar(view?.findViewById(R.id.bottom_app_bar))
         viewModel.getData()
-            .observe(viewLifecycleOwner, Observer<PictureOfTheDayData> { renderData(it) })
+            .observe(viewLifecycleOwner, { renderData(it) })
     }
 
 
@@ -62,7 +62,7 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
-            R.id.app_bar_search  -> activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
+            R.id.app_bar_search  -> activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
@@ -99,8 +99,8 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+       // val context = activity as MainActivity
+       // context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
         setHasOptionsMenu(true)
         binding.fab.setOnClickListener {
             if (isMain) {
