@@ -6,29 +6,28 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
+import com.example.picture_of_the_day.databinding.FragmentPictureOfTheDayBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.example.picture_of_the_day.databinding.FragmentPictureOfTheDayBinding
 
 class PictureOfTheDayFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
-    val context = activity as MainActivity
+   // val context = activity as MainActivity
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProviders.of(this)[PictureOfTheDayViewModel::class.java]
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-     //   context.setSupportActionBar(view?.findViewById(R.id.bottom_app_bar))
         viewModel.getData()
             .observe(viewLifecycleOwner, { renderData(it) })
     }
@@ -54,6 +53,7 @@ class PictureOfTheDayFragment : Fragment() {
         setBottomAppBar(view)
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_bottom_bar, menu)
@@ -78,10 +78,8 @@ class PictureOfTheDayFragment : Fragment() {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
-                    //showError("Сообщение, что ссылка пустая")
                     toast("Link is empty")
                 } else {
-                    //showSuccess()
                     binding.imageView.load(url) {
                         lifecycle(this@PictureOfTheDayFragment)
                         error(R.drawable.ic_no_photo_vector)
@@ -90,31 +88,31 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             is PictureOfTheDayData.Loading -> {
-                //showLoading()
+                // todo showLoading()
             }
             is PictureOfTheDayData.Error -> {
-                //showError(data.error.message)
+                // todo showError(data.error.message)
             }
         }
     }
 
     private fun setBottomAppBar(view: View) {
-       // val context = activity as MainActivity
-       // context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+        val toolbar = view.findViewById<Toolbar>(R.id.bottom_app_bar)
+        activity?.setActionBar(toolbar)
         setHasOptionsMenu(true)
         binding.fab.setOnClickListener {
             if (isMain) {
                 isMain = false
                 binding.bottomAppBar.navigationIcon = null
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
+                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_back_fab))
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
             } else {
                 isMain = true
                 binding.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger_menu_bottom_bar)
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
+                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_plus_fab))
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
         }

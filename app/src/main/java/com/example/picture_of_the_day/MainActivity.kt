@@ -17,13 +17,4 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    override fun onCreateView(
-        parent: View?,
-        name: String,
-        context: Context,
-        attrs: AttributeSet
-    ): View? {
-        setSupportActionBar(parent?.findViewById(R.id.bottom_app_bar))
-        return super.onCreateView(parent, name, context, attrs)
-    }
 }

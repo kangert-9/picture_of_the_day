@@ -20,7 +20,7 @@ class PictureOfTheDayViewModel(
 
     private fun sendServerRequest() {
         liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
-        val apiKey: String = "cE0eLbVmQmO3aQcNhbSD27oYiO19eo2hcol6xUfe"
+        val apiKey = "cE0eLbVmQmO3aQcNhbSD27oYiO19eo2hcol6xUfe"
         if (apiKey.isBlank()) {
             PictureOfTheDayData.Error(Throwable("You need API key"))
         } else {
