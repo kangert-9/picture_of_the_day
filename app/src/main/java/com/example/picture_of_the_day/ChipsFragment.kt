@@ -31,4 +31,8 @@ class ChipsFragment : Fragment() {
             ).show()
         }
     }
+
+    companion object {
+        fun newInstance() = ChipsFragment()
+    }
 }

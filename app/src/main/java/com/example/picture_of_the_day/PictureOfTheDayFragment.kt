@@ -58,6 +58,7 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val act = activity as MainActivity
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
             R.id.app_bar_search  -> toast("Search")
@@ -66,9 +67,17 @@ class PictureOfTheDayFragment : Fragment() {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
             }
-            R.id.app_bar_settings ->
-                activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
-                    ChipsFragment())?.addToBackStack(null)?.commit()
+            R.id.app_bar_settings ->{
+                act.sm.
+                    //  activity?.supportFragmentManager?.
+                beginTransaction()?.remove(this).
+                add(
+                    R.id.container,//.add(R.id.container,
+                    ChipsFragment.newInstance())?.
+                    //  addToBackStack(null)?.
+                commit()
+                toast("откройте чипсы")
+            }
         }
         return super.onOptionsItemSelected(item)
     }

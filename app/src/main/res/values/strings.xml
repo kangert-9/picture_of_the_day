@@ -7,4 +7,27 @@
     <string name="settings">settings</string>
     <string name="wiki">wiki</string>
     <string name="search">search</string>
+    <string name="Default">Default</string>
+    <string name="Entry">Entry</string>
+    <string name="choice">Choice</string>
+    <string name="action">Action</string>
+    <string name="filter">Filter</string>
+    <string name="background_color">Background Color</string>
+    <string name="ripple_color">Ripple Color</string>
+    <string name="chip_icon">Chip icon</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="chip">Chip</string>
+    <string name="group">Group</string>
+    <string name="in">in</string>
+    <string name="single">single</string>
+    <string name="line">line</string>
+    <string name="add">add</string>
+    <string name="a">a</string>
+    <string name="horizontal">horizontal</string>
+    <string name="scroll">scroll</string>
+    <string name="choice_a">Choice A</string>
+    <string name="choice_b">Choice B</string>
+    <string name="choice_c">Choice C</string>
+    <string name="close_icon_listener">Close Icon Listener</string>
 </resources>
