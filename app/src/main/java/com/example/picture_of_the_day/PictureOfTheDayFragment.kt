@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -21,7 +20,6 @@ class PictureOfTheDayFragment : Fragment() {
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding get() = _binding!!
-   // val context = activity as MainActivity
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProviders.of(this)[PictureOfTheDayViewModel::class.java]
     }
@@ -62,12 +60,15 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
-            R.id.app_bar_search  -> activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
-            android.R.id.home -> {
+            R.id.app_bar_search  -> toast("Search")
+            R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
                 }
             }
+            R.id.app_bar_settings ->
+                activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
+                    SettingsFragment())?.addToBackStack(null)?.commit()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -97,22 +98,23 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     private fun setBottomAppBar(view: View) {
-        val toolbar = view.findViewById<Toolbar>(R.id.bottom_app_bar)
-        activity?.setActionBar(toolbar)
+        val context = activity as MainActivity
+        val toolbar = view.findViewById<BottomAppBar>(R.id.bottom_app_bar)
+        context.setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
         binding.fab.setOnClickListener {
             if (isMain) {
                 isMain = false
                 binding.bottomAppBar.navigationIcon = null
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_back_fab))
+                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
             } else {
                 isMain = true
                 binding.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger_menu_bottom_bar)
+                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_plus_fab))
+                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
         }
