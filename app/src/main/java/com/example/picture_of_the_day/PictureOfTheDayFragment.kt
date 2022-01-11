@@ -68,7 +68,7 @@ class PictureOfTheDayFragment : Fragment() {
             }
             R.id.app_bar_settings ->
                 activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
-                    SettingsFragment())?.addToBackStack(null)?.commit()
+                    ChipsFragment())?.addToBackStack(null)?.commit()
         }
         return super.onOptionsItemSelected(item)
     }
