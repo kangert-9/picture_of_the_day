@@ -68,15 +68,10 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             R.id.app_bar_settings ->{
-                act.sm.
-                    //  activity?.supportFragmentManager?.
-                beginTransaction()?.remove(this).
-                add(
-                    R.id.container,//.add(R.id.container,
-                    ChipsFragment.newInstance())?.
-                    //  addToBackStack(null)?.
+                act.sm.beginTransaction().add(R.id.container,
+                    ChipsFragment.newInstance()).
+                      addToBackStack(null).
                 commit()
-                toast("откройте чипсы")
             }
         }
         return super.onOptionsItemSelected(item)
