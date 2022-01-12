@@ -58,7 +58,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val act = activity as MainActivity
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
             R.id.app_bar_search  -> toast("Search")
@@ -68,9 +67,9 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             R.id.app_bar_settings ->{
-                act.sm.beginTransaction().add(R.id.container,
-                    ChipsFragment.newInstance()).
-                      addToBackStack(null).
+                    activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
+                    ChipsFragment.newInstance())?.
+                      addToBackStack(null)?.
                 commit()
             }
         }

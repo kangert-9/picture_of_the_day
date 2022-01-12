@@ -6,4 +6,7 @@
     <dimen name="marginTop">5dp</dimen>
     <dimen name="padding">10dp</dimen>
     <dimen name="marginChips">16dp</dimen>
+
+    <dimen name="margin">8dp</dimen>
+    <dimen name="textSize">42sp</dimen>
 </resources>

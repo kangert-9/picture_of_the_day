@@ -15,4 +15,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="color_gray">#66000000</color>
+
+    <color name="indigo">#651FFF</color>
+    <color name="indigo_dark">#591AE4</color>
+    <color name="indigo_light">#8249FF</color>
+    <color name="pink">#FF4081</color>
+    <color name="pink_dark">#880E4F</color>
+    <color name="pink_light">#FF80AB</color>
 </resources>

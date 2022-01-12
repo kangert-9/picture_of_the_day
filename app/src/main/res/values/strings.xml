@@ -30,4 +30,9 @@
     <string name="choice_b">Choice B</string>
     <string name="choice_c">Choice C</string>
     <string name="close_icon_listener">Close Icon Listener</string>
+    <string name="choose_theme">Выберите тему</string>
+    <string name="cosmos">Космос</string>
+    <string name="moon">Луна</string>
+    <string name="mars">Марс</string>
+    <string name="earth">Земля</string>
 </resources>
