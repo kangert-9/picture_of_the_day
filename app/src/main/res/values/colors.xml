@@ -11,6 +11,7 @@
     <color name="bottom_line">#663b4351</color>
     <color name="bottom_text">#000</color>
 
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
@@ -22,4 +23,13 @@
     <color name="pink">#FF4081</color>
     <color name="pink_dark">#880E4F</color>
     <color name="pink_light">#FF80AB</color>
+
+    <color name="red">#F44336</color>
+    <color name="red_dark">#B43026</color>
+    <color name="design_default_color_primary_variant">#3700B3</color>
+    <color name="design_default_color_surface">#FFFFFF</color>
+
+    <color name="blue">#90CAF9</color>
+    <color name="green_light">#5DE763</color>
+
 </resources>

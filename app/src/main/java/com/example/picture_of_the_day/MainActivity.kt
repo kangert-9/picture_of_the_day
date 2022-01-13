@@ -2,22 +2,22 @@ package com.example.picture_of_the_day
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.google.android.material.chip.Chip
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 
 class MainActivity : AppCompatActivity() {
     private val sm = supportFragmentManager
     private val nameSharedPreference = "LOGIN"
 
     private val appTheme = "APP_THEME"
-    private val MyCoolCodeStyle = 0
-    private val AppThemeLightCodeStyle = 1
-    private val AppThemeCodeStyle = 2
-    private val AppThemeDarkCodeStyle = 3
+    private val Theme_Picture_of_the_day = 0
+    private val Moon = 1
+    private val Mars = 2
+    private val Cosmos = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(getAppTheme(R.style.MyCoolStyle))
+        setTheme(getAppTheme(R.style.Theme_Picture_of_the_day))
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             sm.beginTransaction()
@@ -39,22 +39,22 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    private fun getAppTheme(myCoolStyle: Int): Int {
-        return codeStyleToStyleId(getCodeStyle(myCoolStyle))
+    private fun getAppTheme(myStyle: Int): Int {
+        //Toast.makeText(applicationContext, getCodeStyle(myStyle).toString(), LENGTH_SHORT).show()
+        return codeStyleToStyleId(getCodeStyle(myStyle))
     }
 
-    private fun getCodeStyle(myCoolStyle: Int): Int {
+    private fun getCodeStyle(myStyle: Int): Int {
         val sharedPref = getSharedPreferences(nameSharedPreference, MODE_PRIVATE)
-        Log.d("dm", sharedPref.getInt(appTheme, myCoolStyle).toString())
-        return sharedPref.getInt(appTheme, myCoolStyle)
+        return sharedPref.getInt(appTheme, myStyle)
     }
 
     private fun codeStyleToStyleId(codeStyle: Int): Int {
         return when (codeStyle) {
-            AppThemeCodeStyle -> R.style.AppTheme
-            AppThemeLightCodeStyle -> R.style.AppThemeLight
-            AppThemeDarkCodeStyle -> R.style.AppThemeDark
-            else -> R.style.MyCoolStyle
+            Mars -> R.style.MarsStyle
+            Moon -> R.style.MoonStyle
+            Cosmos -> R.style.CosmosStyle
+            else -> R.style.Theme_Picture_of_the_day
         }
     }
 }
