@@ -4,21 +4,19 @@ package com.example.picture_of_the_day.picture_of_the_day
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import com.example.picture_of_the_day.R
-import com.example.picture_of_the_day.databinding.FragmentPictureOfTheDayBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.picture_of_the_day.databinding.FragmentMainStartBinding
 import com.google.android.material.snackbar.Snackbar
 
 class PictureOfTheDayFragment : Fragment() {
 
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-    private var _binding: FragmentPictureOfTheDayBinding? = null
+    private var _binding: FragmentMainStartBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProviders.of(this)[PictureOfTheDayViewModel::class.java]
@@ -36,9 +34,10 @@ class PictureOfTheDayFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
+        _binding = FragmentMainStartBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,6 +52,7 @@ class PictureOfTheDayFragment : Fragment() {
         when (data) {
             is PictureOfTheDayData.Success -> {
                 binding.progressBar.visibility=View.GONE
+                binding.group.visibility=View.VISIBLE
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
@@ -65,6 +65,7 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
                 serverResponseData.explanation?.let {
+                    Log.d("tag", it)
                     binding.text.text=it
                 }
             }
