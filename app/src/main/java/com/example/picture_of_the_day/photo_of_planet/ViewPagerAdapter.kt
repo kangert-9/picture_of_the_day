@@ -14,6 +14,7 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
         MoonFragment())
     override fun getItem(position: Int): Fragment {
         return when (position) {
+            0 -> fragments[EARTH_FRAGMENT]
             1 -> fragments[MARS_FRAGMENT]
             2 -> fragments[MOON_FRAGMENT]
             else -> fragments[EARTH_FRAGMENT]
@@ -21,5 +22,14 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     }
     override fun getCount(): Int {
         return fragments.size
+    }
+
+    override fun getPageTitle(position: Int): CharSequence {
+        return when (position) {
+            0 -> "Earth"
+            1 -> "Mars"
+            2 -> "Weather"
+            else -> "Earth"
+        }
     }
 }

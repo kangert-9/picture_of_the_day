@@ -18,7 +18,9 @@ class PhotoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPhotoBinding.inflate(inflater, container, false)
-        binding.viewPager.adapter= ViewPagerAdapter(childFragmentManager)
+        val viewPager = binding.viewPager
+        viewPager.adapter= ViewPagerAdapter(childFragmentManager)
+        binding.tabLayout.setupWithViewPager(viewPager)
         return binding.root
     }
 }
