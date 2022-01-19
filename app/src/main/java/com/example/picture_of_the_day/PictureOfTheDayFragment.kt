@@ -42,39 +42,39 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+     //   setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
-        setBottomAppBar(view)
+   //     setBottomAppBar(view)
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(R.menu.menu_bottom_bar, menu)
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.app_bar_fav -> toast("Favourite")
-            R.id.app_bar_search  -> toast("Search")
-            R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
-                }
-            }
-            R.id.app_bar_settings ->{
-                    activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
-                    ChipsFragment.newInstance())?.
-                      addToBackStack(null)?.
-                commit()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.app_bar_fav -> toast("Favourite")
+//            R.id.app_bar_search  -> toast("Search")
+////            R.id.home -> {
+////                activity?.let {
+////                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
+////                }
+////            }
+//            R.id.app_bar_settings ->{
+//                    activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container,
+//                    ChipsFragment.newInstance())?.
+//                      addToBackStack(null)?.
+//                commit()
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     private fun renderData(data: PictureOfTheDayData) {
         when (data) {
@@ -100,33 +100,33 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-    private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        val toolbar = view.findViewById<BottomAppBar>(R.id.bottom_app_bar)
-        context.setSupportActionBar(toolbar)
-        setHasOptionsMenu(true)
-        binding.fab.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                binding.bottomAppBar.navigationIcon = null
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
-            } else {
-                isMain = true
-                binding.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-            }
-        }
-    }
+//    private fun setBottomAppBar(view: View) {
+//        val context = activity as MainActivity
+//        val toolbar = view.findViewById<BottomAppBar>(R.id.bottom_app_bar)
+//        context.setSupportActionBar(toolbar)
+//        setHasOptionsMenu(true)
+//        binding.fab.setOnClickListener {
+//            if (isMain) {
+//                isMain = false
+//                binding.bottomAppBar.navigationIcon = null
+//                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+//                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
+//                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
+//            } else {
+//                isMain = true
+//                binding.bottomAppBar.navigationIcon =
+//                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
+//                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+//                binding.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
+//                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
+//            }
+//        }
+//    }
 
-    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
+//    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
+//        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+//        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+//    }
 
     private fun Fragment.toast(string: String?) {
         Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {

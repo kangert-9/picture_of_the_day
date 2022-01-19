@@ -1,13 +1,20 @@
 package com.example.picture_of_the_day
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
+import com.example.picture_of_the_day.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private val sm = supportFragmentManager
     private val nameSharedPreference = "LOGIN"
+
+    private lateinit var binding: ActivityMainBinding
 
     private val appTheme = "APP_THEME"
     private val Theme_Picture_of_the_day = 0
@@ -17,15 +24,43 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(getAppTheme(R.style.Theme_Picture_of_the_day))
-        setContentView(R.layout.activity_main)
-        if (savedInstanceState == null) {
-            sm.beginTransaction()
-                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
-                .commitNow()
+        setContentView(binding.root)
+//        if (savedInstanceState == null) {
+//            sm.beginTransaction()
+//                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
+//                .commitNow()
+//        }
+       // val bottom_navigation_view = view?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.bottom_view_earth -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.activity_api_bottom_container,
+                            PictureOfTheDayFragment())
+                        .commitAllowingStateLoss()
+                    true
+                }
+                R.id.bottom_view_mars -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.activity_api_bottom_container,
+                            PhotoFragment())
+                        .commitAllowingStateLoss()
+                    true
+                }
+                R.id.bottom_view_weather -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.activity_api_bottom_container,
+                            WeatherFragment())
+                        .commitAllowingStateLoss()
+                    true
+                }
+                else -> false
+            }
         }
+        binding.bottomNavigationView.selectedItemId = R.id.bottom_view_earth
     }
-
 
     fun theme( myCoolCodeStyle: Int) {
             setAppTheme(myCoolCodeStyle)
