@@ -13,6 +13,7 @@ import coil.api.load
 import com.example.picture_of_the_day.R
 import com.example.picture_of_the_day.databinding.FragmentPictureOfTheDayBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.snackbar.Snackbar
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -51,6 +52,7 @@ class PictureOfTheDayFragment : Fragment() {
     private fun renderData(data: PictureOfTheDayData) {
         when (data) {
             is PictureOfTheDayData.Success -> {
+                binding.progressBar.visibility=View.GONE
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
@@ -62,12 +64,21 @@ class PictureOfTheDayFragment : Fragment() {
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                 }
+                serverResponseData.explanation?.let {
+                    binding.text.text=it
+                }
             }
             is PictureOfTheDayData.Loading -> {
-                // todo showLoading()
+                binding.group.visibility=View.GONE
+                binding.progressBar.visibility=View.VISIBLE
             }
             is PictureOfTheDayData.Error -> {
-                // todo showError(data.error.message)
+                binding.group.visibility=View.GONE
+                binding.progressBar.visibility=View.GONE
+                Snackbar
+                    .make(binding.root, "Error: ошибка соединения", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Reload") { viewModel.getData() }
+                    .show()
             }
         }
     }
