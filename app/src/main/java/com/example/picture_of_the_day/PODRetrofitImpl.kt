@@ -1,5 +1,6 @@
 package com.example.picture_of_the_day
 
+import com.example.picture_of_the_day.picture_of_the_day.PictureOfTheDayAPI
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

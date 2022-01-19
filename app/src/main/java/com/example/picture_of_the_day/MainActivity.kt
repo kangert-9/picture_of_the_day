@@ -3,6 +3,8 @@ package com.example.picture_of_the_day
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.picture_of_the_day.databinding.ActivityMainBinding
+import com.example.picture_of_the_day.photo_of_planet.PhotoFragment
+import com.example.picture_of_the_day.picture_of_the_day.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
     private val nameSharedPreference = "LOGIN"
@@ -24,14 +26,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.bottom_view_home -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.activity_api_bottom_container,
-                            PictureOfTheDayFragment())
+                            PictureOfTheDayFragment()
+                        )
                         .commitAllowingStateLoss()
                     true
                 }
                 R.id.bottom_view_photos -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.activity_api_bottom_container,
-                            PhotoFragment())
+                            PhotoFragment()
+                        )
                         .commitAllowingStateLoss()
                     true
                 }

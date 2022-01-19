@@ -1,4 +1,6 @@
-package com.example.picture_of_the_day
+package com.example.picture_of_the_day.picture_of_the_day
+
+import com.example.picture_of_the_day.PODServerResponseData
 
 sealed class PictureOfTheDayData {
     data class Success(val serverResponseData: PODServerResponseData) : PictureOfTheDayData()
