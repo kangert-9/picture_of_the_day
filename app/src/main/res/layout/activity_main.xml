@@ -21,7 +21,7 @@
         android:layout_margin="@dimen/marginChips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_plus_fab"
+        app:srcCompat="@drawable/ic_theme_fab"
         app:tint="@color/white"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"

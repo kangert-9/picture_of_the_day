@@ -35,4 +35,7 @@
     <string name="moon">Луна</string>
     <string name="mars">Марс</string>
     <string name="earth">Земля</string>
+    <string name="home">home</string>
+    <string name="photos">photos</string>
+    <string name="weather">weather</string>
 </resources>
