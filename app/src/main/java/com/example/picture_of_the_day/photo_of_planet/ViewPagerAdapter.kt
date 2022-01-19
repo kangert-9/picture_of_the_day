@@ -10,7 +10,7 @@ private const val MOON_FRAGMENT = 2
 
 class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
-    private val fragments = arrayOf(MarsFragment(), EarthFragment(),
+    private val fragments = arrayOf(EarthFragment(), MarsFragment(),
         MoonFragment())
     override fun getItem(position: Int): Fragment {
         return when (position) {
@@ -28,7 +28,7 @@ class ViewPagerAdapter(private val fragmentManager: FragmentManager) :
         return when (position) {
             0 -> "Earth"
             1 -> "Mars"
-            2 -> "Weather"
+            2 -> "Moon"
             else -> "Earth"
         }
     }
