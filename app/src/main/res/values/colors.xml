@@ -32,4 +32,9 @@
     <color name="blue">#90CAF9</color>
     <color name="green_light">#5DE763</color>
 
+    <color name="old">#FFFDE7</color>
+    <color name="old_new">#FFF176</color>
+    <color name="old_dark">#FFD54F</color>
+    <color name="orange">#FFCA28</color>
+
 </resources>
