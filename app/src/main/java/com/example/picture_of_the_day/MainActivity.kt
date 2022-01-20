@@ -5,10 +5,10 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.picture_of_the_day.databinding.ActivityMainBinding
 import com.example.picture_of_the_day.photo_of_planet.PhotoFragment
 import com.example.picture_of_the_day.picture_of_the_day.PictureOfTheDayFragment
+import com.example.picture_of_the_day.weather.WeatherFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.bottom_view_weather -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.activity_api_bottom_container,
-                            WeatherFragment())
+                            WeatherFragment()
+                        )
                         .commitAllowingStateLoss()
                     true
                 }
