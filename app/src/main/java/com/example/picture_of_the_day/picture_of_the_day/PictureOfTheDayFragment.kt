@@ -4,8 +4,13 @@ package com.example.picture_of_the_day.picture_of_the_day
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.ChangeImageTransform
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -18,6 +23,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     private var _binding: FragmentMainStartBinding? = null
     private val binding get() = _binding!!
+    private var isExpanded = false
+
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProviders.of(this)[PictureOfTheDayViewModel::class.java]
     }
@@ -35,6 +42,23 @@ class PictureOfTheDayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainStartBinding.inflate(inflater, container, false)
+        val im = binding.imageView
+        im.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                container, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+            val params: ViewGroup.LayoutParams = im.layoutParams
+            params.height =
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            im.layoutParams = params
+            im.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP else
+                    ImageView.ScaleType.FIT_CENTER
+        }
         return binding.root
     }
 

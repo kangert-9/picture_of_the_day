@@ -33,13 +33,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:orientation="horizontal"
-            android:paddingEnd="32dp"
-            android:paddingBottom="32dp">
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="@dimen/marginTop"
                 android:text="@string/mars"
                 android:textColor="@color/red"
                 android:textStyle="bold" />
@@ -50,13 +50,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:orientation="horizontal"
-            android:paddingEnd="32dp"
-            android:paddingBottom="32dp">
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="@dimen/marginTop"
                 android:text="@string/earth"
                 android:textColor="@color/blue"
                 android:textStyle="bold" />
@@ -67,13 +67,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:orientation="horizontal"
-            android:paddingEnd="32dp"
-            android:paddingBottom="32dp">
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="@dimen/marginTop"
                 android:text="@string/moon"
                 android:textColor="@color/old_new"
                 android:textStyle="bold" />
@@ -84,13 +84,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:orientation="horizontal"
-            android:paddingEnd="32dp"
-            android:paddingBottom="32dp">
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="@dimen/marginTop"
             android:text="@string/cosmos"
             android:textColor="@color/black"
             android:textStyle="bold" />
@@ -103,15 +103,15 @@
             android:layout_gravity="bottom|end"
             app:srcCompat="@drawable/ic_theme_fab"
             app:tint="@color/white"
-            android:elevation="5dp" />
+            android:elevation="@dimen/fab_elevation" />
         <ImageView
             android:id="@+id/plus_imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            android:elevation="10dp"
+            android:layout_marginEnd="@dimen/padding_large"
+            android:layout_marginBottom="@dimen/padding_large"
+            android:elevation="@dimen/image_elevation"
             app:srcCompat="@drawable/ic_plus_fab" />
     </FrameLayout>
 

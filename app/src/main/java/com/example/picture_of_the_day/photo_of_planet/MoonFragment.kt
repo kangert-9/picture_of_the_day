@@ -8,7 +8,9 @@ import android.transition.TransitionSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import com.example.picture_of_the_day.R
 import com.example.picture_of_the_day.databinding.FragmentMarsBinding
@@ -18,30 +20,43 @@ import com.example.picture_of_the_day.databinding.FragmentMoonBinding
 class MoonFragment : Fragment() {
     private var _binding: FragmentMoonBinding? = null
     private val binding get() = _binding!!
-    private var isExpanded = false
+    private var show = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMoonBinding.inflate(inflater, container, false)
-        val im = binding.image
-        im.setOnClickListener {
-            isExpanded = !isExpanded
-            TransitionManager.beginDelayedTransition(
-                container, TransitionSet()
-                    .addTransition(ChangeBounds())
-                    .addTransition(ChangeImageTransform())
-            )
-            val params: ViewGroup.LayoutParams = im.layoutParams
-            params.height =
-                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            im.layoutParams = params
-            im.scaleType =
-                if (isExpanded) ImageView.ScaleType.CENTER_CROP else
-                    ImageView.ScaleType.FIT_CENTER
+        binding.backgroundImage.setOnClickListener {
+            if (show)
+                hideComponents()
+            else
+                showComponents()
         }
         return binding.root
+    }
+
+    private fun hideComponents() {
+        show = false
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(requireContext(), R.layout.fragment_moon)
+        val transition = ChangeBounds()
+        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+        transition.duration = 1200
+        TransitionManager.beginDelayedTransition(binding.constraintContainer,
+            transition)
+        constraintSet.applyTo(binding.constraintContainer)
+    }
+
+    private fun showComponents() {
+        show = true
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(requireContext(), R.layout.moon_end)
+        val transition = ChangeBounds()
+        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
+        transition.duration = 1200
+        TransitionManager.beginDelayedTransition(binding.constraintContainer,
+            transition)
+        constraintSet.applyTo(binding.constraintContainer)
     }
 }

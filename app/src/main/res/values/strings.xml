@@ -38,4 +38,11 @@
     <string name="home">home</string>
     <string name="photos">photos</string>
     <string name="weather">weather</string>
+    <string name="earth_description">Земля — не самая большая из планет Солнечной системы. Наоборот, она одна из самых маленьких</string>
+    <string name="show_descr">Показать описание</string>
+    <string name="earth_planet">Планета Земля</string>
+    <string name="mars_description">планета земной группы с разреженной атмосферой</string>
+    <string name="mars_planet">Планета Марс</string>
+    <string name="moon_planet">Спутник Луна</string>
+    <string name="moon_description">пятый по размеру спутник Солнечной системы</string>
 </resources>

@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/drawable/ic_archive.xml" value="0.1" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/activity_animations_bonus_end.xml" value="0.11085526315789473" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.1" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/earth_end.xml" value="0.11085526315789473" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_bottom_navigation_drawer.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_chips.xml" value="0.12323064113238967" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_earth.xml" value="0.11085526315789473" />
@@ -15,7 +17,9 @@
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_photo.xml" value="0.11085526315789473" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_picture_of_the_day.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_settings.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_weather.xml" value="0.10666666666666667" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/fragment_weather.xml" value="0.1" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/mars_end.xml" value="0.11085526315789473" />
+        <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/moon_end.xml" value="0.11085526315789473" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/motion_scene.xml" value="0.1" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/layout/swipe_indicator_active.xml" value="0.11085526315789473" />
         <entry key="..\:/Users/kange/AndroidStudioProjects/picture_of_the_day/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />

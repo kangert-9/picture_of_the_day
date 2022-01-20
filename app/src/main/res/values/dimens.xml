@@ -10,4 +10,12 @@
     <dimen name="margin">8dp</dimen>
     <dimen name="textSize">30sp</dimen>
     <dimen name="text_size">8sp</dimen>
+    <dimen name="descr_size">22sp</dimen>
+    <dimen name="tap_size">15sp</dimen>
+    <dimen name="title_size">40sp</dimen>
+    <dimen name="title_margin">48dp</dimen>
+    <dimen name="marginBottom">12dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="fab_elevation">5dp</dimen>
+    <dimen name="image_elevation">10dp</dimen>
 </resources>

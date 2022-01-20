@@ -36,5 +36,8 @@
     <color name="old_new">#FFF176</color>
     <color name="old_dark">#FFD54F</color>
     <color name="orange">#FFCA28</color>
+    <color name="title_background">#F57F17</color>
+    <color name="mars_title_background">#1A237E</color>
+    <color name="moon_title_background">#B71C1C</color>
 
 </resources>
