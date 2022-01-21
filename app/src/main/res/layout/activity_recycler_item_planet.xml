@@ -6,50 +6,54 @@
     android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/earthImageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/item_size"
+        android:layout_height="@dimen/item_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/earth_foto" />
+        app:srcCompat="@drawable/planet" />
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/planetName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Земля"
-        android:textSize="35sp"
+        android:textSize="@dimen/name_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintEnd_toStartOf="@+id/earthImageView"
         app:layout_constraintTop_toTopOf="@+id/earthImageView" />
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/wikiImageView"
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/planetWeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_marginEnd="@dimen/marginBottom"
+        android:textSize="@dimen/name_size"
+        app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
+        app:layout_constraintEnd_toStartOf="@id/moveItemDown"
+        app:layout_constraintTop_toTopOf="@+id/earthImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginBottom"
+        android:background="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_wikipedia" />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Дополнительный текст"
-        android:textColor="#000"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
-        app:layout_constraintEnd_toStartOf="@+id/barrier"
-        app:layout_constraintStart_toEndOf="@+id/earthImageView"
-        app:layout_constraintTop_toTopOf="@+id/earthImageView" />
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+        app:srcCompat="@android:drawable/arrow_up_float"  />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="wikiImageView" />
+        android:layout_margin="@dimen/marginBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/moveItemUp"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#000"
+        android:layout_height="@dimen/height"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/earthImageView"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

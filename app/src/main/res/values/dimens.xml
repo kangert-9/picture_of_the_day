@@ -18,4 +18,7 @@
     <dimen name="padding_large">32dp</dimen>
     <dimen name="fab_elevation">5dp</dimen>
     <dimen name="image_elevation">10dp</dimen>
+    <dimen name="item_size">80dp</dimen>
+    <dimen name="name_size">30sp</dimen>
+    <dimen name="height">1px</dimen>
 </resources>
