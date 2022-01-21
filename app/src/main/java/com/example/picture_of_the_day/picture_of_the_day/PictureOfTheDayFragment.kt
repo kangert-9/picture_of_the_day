@@ -2,6 +2,7 @@ package com.example.picture_of_the_day.picture_of_the_day
 
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.transition.ChangeBounds
@@ -89,7 +90,7 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
                 serverResponseData.explanation?.let {
-                    Log.d("tag", it)
+                    binding.text.typeface = Typeface.createFromAsset(activity?.assets, "Dongle-Regular.ttf")
                     binding.text.text=it
                 }
             }

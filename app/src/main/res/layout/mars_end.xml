@@ -23,6 +23,7 @@
         android:paddingTop="@dimen/margin"
         android:paddingBottom="@dimen/marginBottom"
         android:text="@string/mars_planet"
+        android:fontFamily="@font/allerta_stencil"
         android:textColor="#FFFF"
         android:textSize="@dimen/title_size"
         app:layout_constraintRight_toRightOf="parent"

@@ -25,6 +25,7 @@
         android:paddingEnd="24dp"
         android:paddingBottom="8dp"
         android:text="@string/moon_planet"
+        android:fontFamily="@font/allerta_stencil"
         android:textColor="#FFFF"
         android:textSize="45sp"
         app:layout_constraintRight_toRightOf="parent"
