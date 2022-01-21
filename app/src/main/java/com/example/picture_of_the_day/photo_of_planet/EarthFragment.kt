@@ -14,7 +14,6 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import com.example.picture_of_the_day.R
 import com.example.picture_of_the_day.databinding.FragmentEarthBinding
-import com.example.picture_of_the_day.databinding.FragmentMainStartBinding
 
 
 class EarthFragment : Fragment() {

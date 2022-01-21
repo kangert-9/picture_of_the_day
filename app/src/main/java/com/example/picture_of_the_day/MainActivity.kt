@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_view_weather -> {
-                    binding.fab.visibility=View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.activity_api_bottom_container,
                             WeatherFragment()

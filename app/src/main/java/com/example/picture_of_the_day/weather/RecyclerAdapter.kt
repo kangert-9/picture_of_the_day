@@ -1,5 +1,6 @@
 package com.example.picture_of_the_day.weather
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,11 +43,17 @@ class RecyclerAdapter(
             TYPE_PLANET
     }
 
-    fun appendItem() {
-        data.add(generateItem())
-        notifyItemInserted(itemCount - 1)
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        data.removeAt(fromPosition).apply {
+            data.add(if (toPosition > fromPosition) toPosition - 1 else
+                toPosition, this)
+        }
+        notifyItemMoved(fromPosition, toPosition)
     }
-    private fun generateItem() = WeatherData("Mars", "")
+    override fun onItemDismiss(position: Int) {
+        data.removeAt(position)
+        notifyItemRemoved(position)
+    }
 
 
     inner class PlanetViewHolder(view: View) : BaseViewHolder(view) {
@@ -63,7 +70,7 @@ class RecyclerAdapter(
         }
     }
 
-    inner class SatelliteViewHolder(view: View) : BaseViewHolder(view) {
+    inner class SatelliteViewHolder(view: View) : BaseViewHolder(view), ItemTouchHelperViewHolder {
         val moonImageView = view.findViewById<ImageView>(R.id.moonImageView)
         val moveItemDown = view.findViewById<ImageView>(R.id.moveItemDown)
         val moveItemUp = view.findViewById<ImageView>(R.id.moveItemUp)
@@ -92,6 +99,12 @@ class RecyclerAdapter(
                 }
                 notifyItemMoved(currentPosition, currentPosition + 1)
             }
+        }
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
         }
     }
 

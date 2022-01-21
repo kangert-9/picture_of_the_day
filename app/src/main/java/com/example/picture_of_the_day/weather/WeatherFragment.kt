@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.picture_of_the_day.databinding.FragmentMainStartBinding
 import com.example.picture_of_the_day.databinding.FragmentWeatherBinding
 
@@ -41,9 +42,9 @@ class WeatherFragment : Fragment() {
             data
         )
         binding.recyclerView.adapter = adapter
-        binding.recyclerActivityFAB.setOnClickListener {
-            adapter.appendItem()
-        }
+        ItemTouchHelper(ItemTouchHelperCallback(adapter))
+            .attachToRecyclerView(binding.recyclerView)
+
         return binding.root
     }
 }
