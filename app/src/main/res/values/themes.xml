@@ -98,4 +98,9 @@
         <item name="android:paddingStart">@dimen/padding</item>
         <item name="android:paddingEnd">@dimen/padding</item>
     </style>
+
+    <style name="Theme.Picture_of_the_day.Splash">
+        <item
+            name="android:windowBackground">@drawable/splash_background_drawable</item>
+    </style>
 </resources>
