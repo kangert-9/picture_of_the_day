@@ -1,6 +1,10 @@
 package com.example.picture_of_the_day.photo_of_planet
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.LayoutInflater
@@ -30,6 +34,12 @@ class EarthFragment : Fragment() {
             else
                 showComponents()
         }
+        val spannable = SpannableString(binding.title.text)
+        spannable.setSpan(
+            ForegroundColorSpan(Color.GREEN),
+            0, 7,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.title.text =spannable
         return binding.root
     }
 

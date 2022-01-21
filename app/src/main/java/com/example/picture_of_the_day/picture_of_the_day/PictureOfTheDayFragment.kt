@@ -2,9 +2,13 @@ package com.example.picture_of_the_day.picture_of_the_day
 
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.transition.ChangeBounds
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
@@ -115,10 +119,5 @@ class PictureOfTheDayFragment : Fragment() {
             setGravity(Gravity.BOTTOM, 0, 250)
             show()
         }
-    }
-
-    companion object {
-        fun newInstance() = PictureOfTheDayFragment()
-        private var isMain = true
     }
 }
