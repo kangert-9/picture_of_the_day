@@ -28,14 +28,10 @@ class WeatherFragment : Fragment() {
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val data = arrayListOf(
             WeatherData("Earth"),
-            WeatherData("Earth"),
             WeatherData("Mars", ""),
-            WeatherData("Earth"),
-            WeatherData("Earth"),
-            WeatherData("Earth"),
-            WeatherData("Mars", null)
+            WeatherData("Луна", "")
         )
-        binding.recyclerView.adapter = RecyclerAdapter(
+        val adapter = RecyclerAdapter(
             object : RecyclerAdapter.OnListItemClickListener {
                 override fun onItemClick(data: WeatherData) {
                     Toast.makeText(requireContext(), data.someText,
@@ -44,6 +40,10 @@ class WeatherFragment : Fragment() {
             },
             data
         )
+        binding.recyclerView.adapter = adapter
+        binding.recyclerActivityFAB.setOnClickListener {
+            adapter.appendItem()
+        }
         return binding.root
     }
 }

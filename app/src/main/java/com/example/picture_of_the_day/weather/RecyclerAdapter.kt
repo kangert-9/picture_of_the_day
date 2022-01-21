@@ -10,11 +10,11 @@ import com.example.picture_of_the_day.R
 
 class RecyclerAdapter(
     private var onListItemClickListener: OnListItemClickListener,
-    private var data: List<WeatherData>
+    private var data: MutableList<WeatherData>
 ):
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<BaseViewHolder>(), ItemTouchHelperAdapter {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            RecyclerView.ViewHolder {
+            BaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return if (viewType == TYPE_PLANET) {
             PlanetViewHolder(
@@ -22,22 +22,15 @@ class RecyclerAdapter(
                     false) as View
             )
         } else {
-            SateliteViewHolder(
+            SatelliteViewHolder(
                 inflater.inflate(R.layout.activity_recycler_item_satelite, parent,
                     false) as View
             )
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int)
-    {
-        if (getItemViewType(position) == TYPE_PLANET) {
-            holder as PlanetViewHolder
-            holder.bind(data[position])
-        } else {
-            holder as SateliteViewHolder
-            holder.bind(data[position])
-        }
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        holder.bind(data[position])
     }
 
     override fun getItemCount(): Int {
@@ -49,12 +42,18 @@ class RecyclerAdapter(
             TYPE_PLANET
     }
 
+    fun appendItem() {
+        data.add(generateItem())
+        notifyItemInserted(itemCount - 1)
+    }
+    private fun generateItem() = WeatherData("Mars", "")
 
-    inner class PlanetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    inner class PlanetViewHolder(view: View) : BaseViewHolder(view) {
         val descriptionTextView = view.findViewById<TextView>(R.id.descriptionTextView)
         val wikiImageView = view.findViewById<ImageView>(R.id.wikiImageView)
 
-        fun bind(data: WeatherData) {
+        override fun bind(data: WeatherData) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
                 descriptionTextView.text = data.someDescription
                 wikiImageView.setOnClickListener {
@@ -64,12 +63,35 @@ class RecyclerAdapter(
         }
     }
 
-    inner class SateliteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class SatelliteViewHolder(view: View) : BaseViewHolder(view) {
         val moonImageView = view.findViewById<ImageView>(R.id.moonImageView)
+        val moveItemDown = view.findViewById<ImageView>(R.id.moveItemDown)
+        val moveItemUp = view.findViewById<ImageView>(R.id.moveItemUp)
 
-        fun bind(data: WeatherData) {
+
+
+        override fun bind(data: WeatherData) {
             moonImageView.setOnClickListener {
                 onListItemClickListener.onItemClick(data) }
+            moveItemDown.setOnClickListener { moveDown() }
+            moveItemUp.setOnClickListener { moveUp() }
+        }
+
+        private fun moveUp() {
+            layoutPosition.takeIf { it > 0 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition - 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition - 1)
+            }
+        }
+        private fun moveDown() {
+            layoutPosition.takeIf { it < data.size - 1 }?.also { currentPosition ->
+                data.removeAt(currentPosition).apply {
+                    data.add(currentPosition + 1, this)
+                }
+                notifyItemMoved(currentPosition, currentPosition + 1)
+            }
         }
     }
 

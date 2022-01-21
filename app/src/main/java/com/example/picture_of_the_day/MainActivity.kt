@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.picture_of_the_day.databinding.ActivityMainBinding
 import com.example.picture_of_the_day.photo_of_planet.PhotoFragment
 import com.example.picture_of_the_day.picture_of_the_day.PictureOfTheDayFragment
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_view_weather -> {
+                    binding.fab.visibility=View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.activity_api_bottom_container,
                             WeatherFragment()
